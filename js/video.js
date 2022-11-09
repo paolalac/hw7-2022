@@ -21,23 +21,23 @@ document.querySelector("#pause").addEventListener("click", function() {
 });
 
 document.querySelector("#slower").addEventListener("click", function() {
-	document.querySelector('video').playbackRate *= 0.9;
-	var speed = document.querySelector('video').playbackRate;
+	video.playbackRate *= 0.9;
+	var speed = video.playbackRate;
 	console.log("The video speed is: ", speed);
 });
 
 document.querySelector("#faster").addEventListener("click", function() {
-	document.querySelector('video').playbackRate *= 1.1;
-	var speed = document.querySelector('video').playbackRate;
+	video.playbackRate *= 1.1;
+	var speed = video.playbackRate;
 	console.log("The video speed is: ", speed);
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
-	document.querySelector('video').currentTime += 10;
-	var video_time = document.querySelector('video').currentTime;
-	var video_duration = document.querySelector('video').duration;
+	video.currentTime += 10;
+	var video_time = video.currentTime;
+	var video_duration = video.duration;
 	if (video_time >= video_duration) {
-		document.querySelector('video').currentTime = 0;
+		video.currentTime = 0;
 	}
 	console.log("The video is at: ", video_time);
 	
@@ -45,17 +45,24 @@ document.querySelector("#skip").addEventListener("click", function() {
 
 document.querySelector("#mute").addEventListener("click", function() {
 	
-	if (document.querySelector('video').muted = false) {
-		document.querySelector('video').muted = true;
-		document.querySelector("#mute").innerHTML = "Unmute";
+	if (video.muted === false) {
+		video.muted = true;
+		document.querySelector("#mute").innerHTML = 'Unmute';
 	}
 
 	else {
-		document.querySelector('video').muted = false;
-		document.querySelector("#mute").innerHTML = "Mute";
+		video.muted = false;
+		document.querySelector("#mute").innerHTML = 'Mute';
 	}
 	
 });
+
+document.querySelector("#volume").innerHTML = document.querySelector("#slider").value;
+document.querySelector("#slider").oninput = function() {
+	video.volume = document.querySelector("#slider").value/100;
+	document.getElementById("volume").innerHTML=document.querySelector("#slider").value+"%";
+
+}
 
 
 
