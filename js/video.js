@@ -64,6 +64,24 @@ document.querySelector("#slider").oninput = function() {
 
 }
 
+document.querySelector("#vintage").addEventListener("click", function() {
+	video.classList.add("oldSchool");
+
+	console.log("Style changed to Old School");
+	
+});
+
+document.querySelector("#orig").addEventListener("click", function() {
+	video.classList.remove("oldSchool");
+
+	console.log("Style changed to Original");
+
+});
+
+
+
+
+
 
 
 
